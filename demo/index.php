@@ -4,8 +4,11 @@ require 'functions.php';
 //require 'router.php';
 require 'Database.php';
 
-$db = new Database();
-$posts = $db->query('SELECT * FROM posts')->fetchAll(PDO::FETCH_ASSOC);
+$config = require('config.php');
+
+$db = new Database($config['database']);
+
+$posts = $db->query('SELECT * FROM posts')->fetchAll();
 
 foreach ($posts as $post) {
     echo "<p>{$post['id']} - {$post['title']}</p>";
