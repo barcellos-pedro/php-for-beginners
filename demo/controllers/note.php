@@ -3,10 +3,17 @@
 $config = require('config.php');
 $db = new Database($config['database']);
 
-$id = $_GET['id'];
-$heading = "Note # {$id}";
+$currentUserId = 5;
+$heading = "Note";
 
-$query = 'SELECT * FROM notes WHERE id = :id';
-$note = $db->query($query, ['id' => $id])->fetch();
+$note = $db->query('SELECT * FROM notes WHERE id = :id', [
+    'id' => $_GET['id']
+])->fetch();
+
+if (!$note) {
+    abort();
+} else if ($note['user_id'] !== $currentUserId) {
+    abort(Response::FORBIDDEN);
+}
 
 require 'views/note.view.php';
