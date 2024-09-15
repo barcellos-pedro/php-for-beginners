@@ -20,3 +20,8 @@ function authorize($condition, $status = Response::FORBIDDEN)
         abort($status);
     }
 }
+
+function sanitize($value)
+{
+    return htmlspecialchars($value);
+}

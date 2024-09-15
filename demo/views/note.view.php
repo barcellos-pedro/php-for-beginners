@@ -8,7 +8,7 @@
         </a>
 
         <p class="mt-6">
-            <?= $note['body'] ?>
+            <?= sanitize($note['body']) ?>
         </p>
     </main>
 

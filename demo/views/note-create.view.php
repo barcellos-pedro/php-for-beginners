@@ -11,7 +11,7 @@
                             Body
                         </label>
                         <div class="mt-2">
-                                <textarea id="body" name="body" rows="5"
+                                <textarea id="body" name="body" rows="5" required
                                           placeholder="Here's and idea for a note..."
                                           class="p-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400">
                                 </textarea>
