@@ -11,11 +11,20 @@
                             Body
                         </label>
                         <div class="mt-2">
-                                <textarea id="body" name="body" rows="5" required
-                                          placeholder="Here's and idea for a note..."
-                                          class="p-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400">
-                                </textarea>
+                            <textarea
+                                    rows="5"
+                                    id="body"
+                                    name="body"
+                                    placeholder="Here's and idea for a note..."
+                                    class="p-3 block w-full rounded-md border-0 py-1.5 text-gray-900"
+                            ><?= old('body') ?></textarea>
                         </div>
+
+                        <?php if (isset($errors['body'])) : ?>
+                            <p class="mt-5 text-red-400 font-semibold">
+                                <?= $errors['body'] ?>
+                            </p>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

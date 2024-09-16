@@ -25,3 +25,8 @@ function sanitize($value)
 {
     return htmlspecialchars($value);
 }
+
+function old($field)
+{
+    return $_POST[$field] ?? '';
+}
