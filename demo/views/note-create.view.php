@@ -20,7 +20,7 @@
                             ><?= old('body') ?></textarea>
                         </div>
 
-                        <?php if (isset($errors['body'])) : ?>
+                        <?php if ($errors['body'] ?? false) : ?>
                             <p class="mt-5 text-red-400 font-semibold">
                                 <?= $errors['body'] ?>
                             </p>
