@@ -1,6 +1,6 @@
 <?php $heading = 'Not Found'; ?>
-<?php require('partials/head.php'); ?>
-<?php require('partials/nav.php'); ?>
+<?php require('views/partials/head.php'); ?>
+<?php require('views/partials/nav.php'); ?>
 
     <main class="flex flex-col justify-center items-center gap-3 h-screen">
         <p class="text-4xl font-semibold">You are not authorized to view this page.</p>
@@ -9,4 +9,4 @@
         </a>
     </main>
 
-<?php require('partials/footer.php'); ?>
+<?php require('views/partials/footer.php'); ?>

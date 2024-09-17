@@ -20,7 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'body' => $body,
             'user_id' => 5
         ]);
+
+        redirect('/notes', Response::SEE_OTHER);
     }
 }
 
-require 'views/note-create.view.php';
+require 'views/notes/create.view.php';

@@ -14,7 +14,7 @@ function routeToController($path, $routes)
 function abort($code = Response::NOT_FOUND)
 {
     http_response_code($code);
-    require "views/{$code}.view.php";
+    require "views/errors/{$code}.view.php";
     die();
 }
 
