@@ -54,10 +54,24 @@ function redirect($location, $status = Response::OK)
 }
 
 /**
- * Require partial file
- * TODO: Fix missing variables from partial when requiring
+ * Concatenate root folder path with function param
  */
-function partial($file)
+function base_path($path)
 {
-    require "views/partials/{$file}.php";
+    return BASE_PATH . $path;
+}
+
+/**
+ * Concatenate root folder path with target view path
+ */
+function view($path, $attributes = [])
+{
+    extract($attributes);
+    require base_path("views/{$path}");
+}
+
+function config($attribute)
+{
+    $config = require base_path('config.php');
+    return $config[$attribute] ?? false;
 }
