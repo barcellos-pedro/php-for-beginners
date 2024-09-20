@@ -1,5 +1,7 @@
 <?php
 
+use Core\Database;
+
 $config = config('database');
 $db = new Database($config);
 

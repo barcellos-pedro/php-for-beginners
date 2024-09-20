@@ -1,5 +1,7 @@
 <?php
 
+use Core\Response;
+
 /**
  * Die and Dump information about variable
  */

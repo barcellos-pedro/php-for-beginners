@@ -1,5 +1,7 @@
 <?php
 
+use Core\{Database, Validator, Response};
+
 $config = config('database');
 $db = new Database($config);
 
