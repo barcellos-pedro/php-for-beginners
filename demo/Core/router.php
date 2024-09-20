@@ -1,5 +1,7 @@
 <?php
 
+use Core\Response;
+
 function routeToController($path, $routes)
 {
     if (array_key_exists($path, $routes)) {
