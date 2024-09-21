@@ -5,7 +5,7 @@ use Core\Database;
 $config = config('database');
 $db = new Database($config);
 
-$currentUserId = 5;
+$currentUserId = 1;
 
 $note = $db->query('SELECT * FROM notes WHERE id = :id', [
     'id' => $_GET['id']

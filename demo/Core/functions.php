@@ -23,6 +23,17 @@ function urlIs($value)
 }
 
 /**
+ * Based on the error, set response status code
+ * and render the error page
+ */
+function abort($code = Response::NOT_FOUND)
+{
+    http_response_code($code);
+    require base_path("views/errors/{$code}.view.php");
+    die();
+}
+
+/**
  * If condition is Falsy, abort()
  */
 function authorize($condition, $status = Response::FORBIDDEN)
