@@ -13,10 +13,19 @@
 
         <form method="POST" class="mt-8">
             <input type="hidden" name="id" value="<?= $note['id'] ?>">
+
             <input type="hidden" name="_method" value="DELETE">
-            <button class="rounded-md bg-red-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-600">
-                Delete
-            </button>
+
+            <div class="flex gap-5">
+                <a href='/note/edit?id=<?= $note['id'] ?>'
+                   class="rounded-md bg-blue-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-600">
+                    Edit
+                </a>
+
+                <button class="rounded-md bg-red-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-600">
+                    Delete
+                </button>
+            </div>
         </form>
     </main>
 

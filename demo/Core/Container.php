@@ -2,8 +2,6 @@
 
 namespace Core;
 
-use Exception;
-
 class Container
 {
     protected $bindings = [];
