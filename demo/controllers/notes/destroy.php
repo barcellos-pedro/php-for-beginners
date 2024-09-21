@@ -1,11 +1,11 @@
 <?php
 
+use Core\App;
 use Core\Database;
 
-$config = config('database');
-$db = new Database($config);
+$db = App::resolve(Database::class);
 
-$currentUserId = 1;
+$currentUserId = 5;
 
 $id = $_POST['id'];
 

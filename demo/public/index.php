@@ -1,15 +1,17 @@
 <?php
 
-/** Project Root path */
-
 use Core\Router;
 
+/** Project Root path */
 const BASE_PATH = __DIR__ . '/../';
 
 require BASE_PATH . 'Core/functions.php';
 
 /** Autoload to avoid requiring the class path */
 spl_autoload_register(autoload_core());
+
+/** Initialize Service Container Bindings */
+require base_path('bootstrap.php');
 
 // Routing
 $router = new Router();

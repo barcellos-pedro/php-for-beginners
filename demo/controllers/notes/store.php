@@ -1,9 +1,8 @@
 <?php
 
-use Core\{Database, Validator, Response};
+use Core\{App, Database, Validator, Response};
 
-$config = config('database');
-$db = new Database($config);
+$db = App::resolve(Database::class);
 
 $errors = [];
 $body = $_POST['body'];
@@ -21,7 +20,7 @@ if (!empty($errors)) {
 
 $db->query('INSERT INTO notes (body, user_id) VALUES (:body, :user_id)', [
     'body' => $body,
-    'user_id' => 1
+    'user_id' => 5
 ]);
 
 redirect('/notes', Response::SEE_OTHER);
