@@ -88,3 +88,15 @@ function config($attribute)
     $config = require base_path('config.php');
     return $config[$attribute] ?? false;
 }
+
+/**
+ * Listen and dynamically require classes
+ * Used as callback on spl_autoload_register
+*/
+function autoload_core()
+{
+    return function ($class) {
+        $class = str_replace('\\', DIRECTORY_SEPARATOR, $class);
+        require base_path("{$class}.php");
+    };
+}
