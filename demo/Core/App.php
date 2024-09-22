@@ -27,4 +27,8 @@ class App
         return static::container()->resolve($key);
     }
 
+    public static function db()
+    {
+        return static::container()->resolve(Database::class);
+    }
 }

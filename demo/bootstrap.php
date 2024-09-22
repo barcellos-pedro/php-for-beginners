@@ -4,7 +4,9 @@ use Core\App;
 use Core\Container;
 use Core\Database;
 
-App::setContainer(new Container());
+$container = new Container();
+
+App::setContainer($container);
 
 App::bind(Database::class, function () {
     $config = config('database');

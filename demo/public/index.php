@@ -1,6 +1,6 @@
 <?php
 
-use Core\Router;
+session_start();
 
 /** Project Root path */
 const BASE_PATH = __DIR__ . '/../';
@@ -14,7 +14,6 @@ spl_autoload_register(autoload_core());
 require base_path('bootstrap.php');
 
 // Routing
-$router = new Router();
 require base_path('routes.php');
 
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
