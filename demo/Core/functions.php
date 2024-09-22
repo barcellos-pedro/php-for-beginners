@@ -92,11 +92,20 @@ function config($attribute)
 /**
  * Listen and dynamically require classes
  * Used as callback on spl_autoload_register
-*/
+ */
 function autoload_core()
 {
     return function ($class) {
         $class = str_replace('\\', DIRECTORY_SEPARATOR, $class);
         require base_path("{$class}.php");
     };
+}
+
+function error($errors, $field)
+{
+    if ($errors[$field] ?? false) {
+        return "<p class='mt-5 text-red-400 font-semibold'>{$errors[$field]}</p>";
+    }
+
+    return '';
 }
