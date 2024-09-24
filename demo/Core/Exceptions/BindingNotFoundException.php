@@ -1,10 +1,10 @@
 <?php
 
-namespace Core;
+namespace Core\Exceptions;
 
 use Exception;
 
-class BindingNotFound extends Exception
+class BindingNotFoundException extends Exception
 {
     public function __construct($key)
     {

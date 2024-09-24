@@ -2,6 +2,8 @@
 
 namespace Core;
 
+use Core\Exceptions\BindingNotFoundException;
+
 class Container
 {
     protected $bindings = [];
@@ -15,7 +17,7 @@ class Container
     {
         $resolver = $this->bindings[$key] ?? false;
 
-        if (!$resolver) throw new BindingNotFound($key);
+        if (!$resolver) throw new BindingNotFoundException($key);
 
         return $resolver();
     }

@@ -31,7 +31,7 @@ $user = $db->query('SELECT * FROM users WHERE email = :email', [
 ])->find();
 
 if (!$user || !password_verify($password, $user['password'])) {
-    $errors['email'] = 'Invalid account credentials.';
+    $errors['email'] = 'Invalid credentials.';
 
     return view('login/create.view.php', [
         'heading' => 'Log In',
