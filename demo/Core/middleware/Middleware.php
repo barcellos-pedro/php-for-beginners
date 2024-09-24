@@ -6,7 +6,7 @@ use Core\Exceptions\MiddlewareNotFoundException;
 
 class Middleware
 {
-    const GUARDS = [
+    const middlewares = [
         'guest' => Guest::class,
         'auth' => Auth::class
     ];
@@ -16,7 +16,7 @@ class Middleware
         if (!$route['middleware']) return;
 
         $key = $route['middleware'];
-        $middleware = static::GUARDS[$key] ?? false;
+        $middleware = static::middlewares[$key] ?? false;
 
         if (!$middleware) throw new MiddlewareNotFoundException($key);
 

@@ -38,7 +38,7 @@ if ($user) {
 // if not, save to database, log in, and redirect.
 $db->query('INSERT INTO users (email, password) VALUES (:email, :password)', [
     'email' => $email,
-    'password' => password_hash($password, PASSWORD_DEFAULT)
+    'password' => hashPassword($password)
 ]);
 
 $_SESSION['user'] = [

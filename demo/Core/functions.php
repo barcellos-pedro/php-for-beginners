@@ -109,3 +109,8 @@ function error($errors, $field)
 
     return '';
 }
+
+function hashPassword($value, $algo = PASSWORD_DEFAULT)
+{
+    return password_hash($value, $algo);
+}
