@@ -7,21 +7,22 @@ $errors = [];
 $email = $_POST['email'];
 $password = $_POST['password'];
 
+// Prepare Form Validator
+$validate = validateForm([
+    'view' => 'login/create.view.php',
+    'heading' => 'Log In'
+]);
+
 // Validate Form
 if (!Validator::email($email)) {
     $errors['email'] = 'Please provide a valid email address.';
 }
 
-if (!Validator::string($password, 7, 255)) {
-    $errors['password'] = 'Please provide a password of at least 7 characters.';
+if (!Validator::string($password)) {
+    $errors['password'] = 'Please provide a valid password.';
 }
 
-if (!empty($errors)) {
-    return view('login/create.view.php', [
-        'heading' => 'Log In',
-        'errors' => $errors
-    ]);
-}
+$validate($errors);
 
 // check if account already exists
 $db = App::db();
@@ -30,17 +31,10 @@ $user = $db->query('SELECT * FROM users WHERE email = :email', [
     'email' => $email
 ])->find();
 
-if (!$user || !password_verify($password, $user['password'])) {
-    $errors['email'] = 'Invalid credentials.';
-
-    return view('login/create.view.php', [
-        'heading' => 'Log In',
-        'errors' => $errors
-    ]);
+if ($user && password_verify($password, $user['password'])) {
+    login(['email' => $email]);
+    redirect('/');
 }
 
-$_SESSION['user'] = [
-    'email' => $email
-];
-
-redirect('/');
+$errors['email'] = 'Invalid credentials.';
+$validate($errors);

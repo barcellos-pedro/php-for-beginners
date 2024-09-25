@@ -41,8 +41,6 @@ $db->query('INSERT INTO users (email, password) VALUES (:email, :password)', [
     'password' => hashPassword($password)
 ]);
 
-$_SESSION['user'] = [
-    'email' => $email
-];
+login(['email' => $email]);
 
 redirect('/');
