@@ -1,4 +1,7 @@
 <?php
 
-logout();
+use Core\Auth;
+
+Auth::logout();
+
 redirect('/');
