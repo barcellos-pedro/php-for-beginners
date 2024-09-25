@@ -6,7 +6,7 @@ class Auth
 {
     public function handle()
     {
-        if (!$_SESSION['user'] ?? false) {
+        if (\Core\Auth::guest()) {
             redirect('/login');
         }
     }

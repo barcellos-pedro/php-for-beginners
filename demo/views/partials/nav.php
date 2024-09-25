@@ -1,4 +1,7 @@
 <?php
+
+use Core\Auth;
+
 $activeLink = 'bg-gray-900 text-white';
 $normalLink = "text-gray-300 hover:bg-gray-700 hover:text-white";
 ?>
@@ -19,7 +22,7 @@ $normalLink = "text-gray-300 hover:bg-gray-700 hover:text-white";
                            class="rounded-md px-3 py-2 text-sm font-medium <?= urlIs('/') ? $activeLink : $normalLink ?>">Home</a>
                         <a href="/about"
                            class="rounded-md px-3 py-2 text-sm font-medium <?= urlIs('/about') ? $activeLink : $normalLink ?>">About</a>
-                        <?php if ($_SESSION['user'] ?? false) : ?>
+                        <?php if (Auth::user()) : ?>
                             <a href="/notes"
                                class="rounded-md px-3 py-2 text-sm font-medium <?= urlIs('/notes') ? $activeLink : $normalLink ?>">Notes</a>
                         <?php endif; ?>
@@ -43,7 +46,7 @@ $normalLink = "text-gray-300 hover:bg-gray-700 hover:text-white";
 
                     <!-- Profile dropdown -->
                     <div class="relative ml-3">
-                        <?php if ($_SESSION['user'] ?? false) : ?>
+                        <?php if (Auth::user()) : ?>
                             <div class="flex gap-5 items-center">
                                 <img class="h-8 w-8 rounded-full"
                                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"

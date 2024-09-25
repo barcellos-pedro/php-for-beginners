@@ -44,8 +44,13 @@ class Auth
         setcookie($name, $value, $expires, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
     }
 
-    public function user()
+    public static function user()
     {
         return $_SESSION['user'] ?? false;
+    }
+
+    public static function guest()
+    {
+        return !static::user();
     }
 }
