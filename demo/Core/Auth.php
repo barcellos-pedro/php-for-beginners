@@ -30,18 +30,7 @@ class Auth
 
     public static function logout()
     {
-        // clear super global
-        $_SESSION = [];
-
-        // clear session file (cookie) on server
-        session_destroy();
-
-        // clear cookie on browser
-        $params = session_get_cookie_params();
-        $name = 'PHPSESSID';
-        $value = '';
-        $expires = time() - 3600; // past 1 hour
-        setcookie($name, $value, $expires, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
+        Session::destroy();
     }
 
     public static function user()
