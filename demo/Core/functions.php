@@ -1,6 +1,7 @@
 <?php
 
 use Core\Response;
+use Core\Session;
 
 /**
  * Die and Dump information about variable
@@ -101,13 +102,15 @@ function autoload_core()
     };
 }
 
-function error($errors, $field)
+function error($field)
 {
-    if ($errors[$field] ?? false) {
-        return "<p class='mt-5 text-red-400 font-semibold'>{$errors[$field]}</p>";
-    }
+    $errors = Session::get('errors');
+    $message = $errors[$field] ?? false;
 
-    return '';
+    if (!$message) return;
+
+    return "<p class='mt-5 text-red-400 font-semibold'>{$message}</p>";
+
 }
 
 function hashPassword($value, $algo = PASSWORD_DEFAULT)

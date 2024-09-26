@@ -21,9 +21,9 @@ class Auth
 
     public static function login($user)
     {
-        $_SESSION['user'] = [
+        Session::put('user', [
             'email' => $user['email']
-        ];
+        ]);
 
         session_regenerate_id(delete_old_session: true);
     }
@@ -35,7 +35,7 @@ class Auth
 
     public static function user()
     {
-        return $_SESSION['user'] ?? false;
+        return Session::get('user');
     }
 
     public static function guest()
