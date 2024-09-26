@@ -17,5 +17,6 @@ if ($form->validate($email, $password) && Auth::attempt($email, $password)) {
 $form->error('email', 'Invalid credentials.');
 
 Session::flash('errors', $form->errors());
+Session::flash('old', ['email' => $email]);
 
 redirect('/login');

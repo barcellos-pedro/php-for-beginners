@@ -55,9 +55,9 @@ function sanitize($value)
 /**
  * Get POST recent submitted field value
  */
-function old($field)
+function old($field, $default = '')
 {
-    return $_POST[$field] ?? '';
+    return Session::get('old')[$field] ?? $default;
 }
 
 function redirect($location, $status = Response::OK)
