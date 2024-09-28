@@ -20,6 +20,11 @@ class Router
         $this->abort();
     }
 
+    public static function previousUrl()
+    {
+        return $_SERVER['HTTP_REFERER'];
+    }
+
     public function only($middleware)
     {
         $this->routes[array_key_last($this->routes)]['middleware'] = $middleware;
