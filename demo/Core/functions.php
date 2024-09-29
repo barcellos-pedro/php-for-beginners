@@ -91,8 +91,9 @@ function config($attribute)
 }
 
 /**
- * Listen and dynamically require classes
- * Used as callback on spl_autoload_register
+ * Manually autoload to avoid requiring every class path
+ * Listens to dynamically require required classes
+ * Used as callback on spl_autoload_register()
  */
 function autoload_core()
 {

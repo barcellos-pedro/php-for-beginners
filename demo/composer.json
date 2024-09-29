@@ -1,0 +1,17 @@
+{
+  "name": "barcellos-pedro/php-for-beginners",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Pedro Reis",
+      "email": "pedrobarcellosdosreis@gmail.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Core\\": "Core/",
+      "Http\\": "Http/"
+    }
+  }
+}

@@ -9,10 +9,11 @@ session_start();
 /** Project Root path */
 const BASE_PATH = __DIR__ . '/../';
 
-require BASE_PATH . 'Core/functions.php';
+/** Initialize Composer's autoload */
+require BASE_PATH . 'vendor/autoload.php';
 
-/** Autoload to avoid requiring the class path */
-spl_autoload_register(autoload_core());
+/** Helper functions */
+require BASE_PATH . 'Core/functions.php';
 
 /** Initialize Service Container Bindings */
 require base_path('bootstrap.php');
