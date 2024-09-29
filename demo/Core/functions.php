@@ -93,6 +93,9 @@ function config($attribute)
 /**
  * Manually autoload to avoid requiring every class path
  * Listens to dynamically require required classes
+ *
+ * E.g: Core/Database, Http/Forms|LoginForm, etc.
+ *
  * Used as callback on spl_autoload_register()
  */
 function autoload_core()

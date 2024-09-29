@@ -13,6 +13,9 @@ class Container
         $this->bindings[$key] = $resolver;
     }
 
+    /**
+     * @throws BindingNotFoundException
+     */
     public function resolve($key)
     {
         $resolver = $this->bindings[$key] ?? false;
